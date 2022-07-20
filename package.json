@@ -19,6 +19,7 @@
     "axios": "^0.27.2",
     "cypress": "^10.3.0",
     "dayjs": "^1.11.2",
+    "format-string-by-pattern": "^1.2.2",
     "framer-motion": "^6.5.1",
     "next": "12.2.2",
     "react": "^17.0.2",

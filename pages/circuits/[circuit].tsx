@@ -1,4 +1,5 @@
 import axios from "axios";
+import formatStringByPattern from "format-string-by-pattern";
 import type { GetServerSideProps, NextPage } from "next";
 import { ReactElement } from "react";
 import { useForm } from "react-hook-form";
@@ -134,19 +135,56 @@ const Circuit: NextPage<{ circuit: string }> = ({ circuit }): ReactElement => {
       winner={winner}
     >
       {winner ? (
-        currentCircuit.times.map((item) => (
-          <TimeTable justifyContent="space-between" key={item._id}>
-            <div>
-              <TextButton
-                type="button"
-                onClick={() => setValue("gamertag", item.gamertag)}
-              >
-                {item.gamertag}
-              </TextButton>
-            </div>
-            <Time>{item.time}</Time>
-          </TimeTable>
-        ))
+        currentCircuit.times.map((item, index) => {
+          let difference;
+
+          if (index + 1 <= currentCircuit.times.length && index > 0) {
+            const comparetime = currentCircuit.times[index - 1].time
+              .replace(".", "")
+              .replace(":", "");
+
+            const time = item.time.replace(".", "").replace(":", "");
+
+            difference = Number(time) - Number(comparetime);
+
+            if (difference.toString().split("").length < 4) {
+              difference = `0${difference}`;
+            }
+
+            if (difference < 0) {
+              difference = "";
+            } else {
+              if (difference.toString().length === 8) {
+                difference = formatStringByPattern("+00:00.000", difference);
+              } else if (difference.toString().length === 7) {
+                difference = formatStringByPattern("+0:00.000", difference);
+              } else if (difference.toString().length === 6) {
+                difference = formatStringByPattern("+00.000", difference);
+              } else if (difference.toString().length === 5) {
+                difference = formatStringByPattern("+00.000", difference);
+              } else if (difference.toString().length === 4) {
+                difference = formatStringByPattern("+0.000", difference);
+              } else if (difference.toString().length === 3) {
+                difference = formatStringByPattern("+000", difference);
+              }
+            }
+          }
+
+          return (
+            <TimeTable justifyContent="space-between" key={item._id}>
+              <div style={{ marginRight: "auto" }}>
+                <TextButton
+                  type="button"
+                  onClick={() => setValue("gamertag", item.gamertag)}
+                >
+                  {item.gamertag}
+                </TextButton>
+              </div>
+              <Time style={{ color: "#f00" }}>{difference}</Time>
+              <Time>{item.time}</Time>
+            </TimeTable>
+          );
+        })
       ) : (
         <TimeTable justifyContent="space-around" data-cy="notimes">
           <div>Nog geen tijden</div>
