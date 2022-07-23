@@ -18,7 +18,7 @@ export default async function handler(
       try {
         const updateUser = await prisma.user.update({
           where: { id: id as string },
-          data: { gamertag: gamertag },
+          data: { gamertag: gamertag as string },
         });
 
         res.status(201).json({ success: true, data: updateUser });
