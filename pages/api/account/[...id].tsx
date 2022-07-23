@@ -17,7 +17,7 @@ export default async function handler(
     case "POST":
       try {
         const updateUser = await prisma.user.update({
-          where: { id: id },
+          where: { id: id as string },
           data: { gamertag: gamertag },
         });
 
