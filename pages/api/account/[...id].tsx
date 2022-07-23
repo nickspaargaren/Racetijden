@@ -16,7 +16,7 @@ export default async function handler(
   switch (req.method) {
     case "POST":
       try {
-        const updateUser = await prisma.user.upsert({
+        const updateUser = await prisma.user.update({
           where: { id: id },
           data: { gamertag: gamertag },
         });
