@@ -1,5 +1,6 @@
 import { motion, useTransform, useViewportScroll } from "framer-motion";
 import Link from "next/link";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { ReactElement } from "react";
 import { ImHome2 } from "react-icons/im";
 import styled from "styled-components";
@@ -56,6 +57,7 @@ type HeaderTitleProps = {
 const Header = ({ title, winner }: HeaderTitleProps): ReactElement => {
   const { scrollY } = useViewportScroll();
   const y = useTransform(scrollY, [0, 200], [0, -54]);
+  const { data: session } = useSession();
 
   return (
     <>
@@ -65,6 +67,23 @@ const Header = ({ title, winner }: HeaderTitleProps): ReactElement => {
             <a className="title">Racetijden</a>
           </Link>
           <Icons>
+            {session ? (
+              <div style={{ textAlign: "right" }}>
+                {!session?.user?.gamertag ? (
+                  <Link href={`/account/new`}>
+                    <a>Gamertag toevoegen</a>
+                  </Link>
+                ) : (
+                  <div>{session?.user?.gamertag}</div>
+                )}
+                <div onClick={() => signOut()}>Uitloggen</div>
+              </div>
+            ) : (
+              <div style={{ textAlign: "right" }}>
+                <div>Account</div>
+                <div onClick={() => signIn()}>Inloggen</div>
+              </div>
+            )}
             <Link href="/">
               <a>
                 <Icon>
