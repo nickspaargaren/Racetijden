@@ -20,10 +20,10 @@ export const authOptions = {
       if (session?.user) {
         try {
           const user = await prisma.user.findUnique({
-            where: { id: token.uid },
+            where: { id: token.sub },
           });
 
-          session.user.id = token.uid;
+          session.user.id = token.sub;
           session.user.gamertag = user.gamertag;
         } catch (error) {
           console.error(error);
