@@ -14,15 +14,20 @@ export const authOptions = {
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
+  // debug: true,
   callbacks: {
     session: async ({ session, token }) => {
       if (session?.user) {
-        const user = await prisma.user.findUnique({
-          where: { id: token.uid },
-        });
+        try {
+          const user = await prisma.user.findUnique({
+            where: { id: token.uid },
+          });
 
-        session.user.id = token.uid;
-        session.user.gamertag = user.gamertag;
+          session.user.id = token.uid;
+          session.user.gamertag = user.gamertag;
+        } catch (error) {
+          console.error(error);
+        }
       }
       return session;
     },
