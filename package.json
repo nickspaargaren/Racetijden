@@ -16,7 +16,7 @@
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
-    "@prisma/client": "^6.5.0",
+    "@prisma/client": "^6.7.0",
     "axios": "^1.9.0",
     "cypress": "^14.3.2",
     "dayjs": "^1.11.13",
@@ -39,7 +39,7 @@
     "eslint-plugin-prettier": "^5.3.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.5.3",
-    "prisma": "^6.5.0",
+    "prisma": "^6.7.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.1"
