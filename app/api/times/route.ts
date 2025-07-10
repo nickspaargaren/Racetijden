@@ -10,10 +10,10 @@ export async function GET(request: Request) {
   const response = apikeySchema.safeParse(searchParams.get("apikey"));
 
   if (!response.success) {
-    const { errors } = response.error;
+    const { issues } = response.error;
 
     return Response.json({
-      error: { errors },
+      error: { issues },
     });
   }
 
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
       { success: false, data: "Invalid API key" },
       {
         status: 401,
-      }
+      },
     );
   }
 
@@ -35,7 +35,7 @@ export async function GET(request: Request) {
       { success: false },
       {
         status: 400,
-      }
+      },
     );
   }
 }

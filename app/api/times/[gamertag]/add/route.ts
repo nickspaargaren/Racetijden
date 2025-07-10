@@ -8,23 +8,17 @@ const prisma = new PrismaClient();
 
 const addTimeSchema = z.object({
   apikey: apikeySchema,
-  gamertag: z.string({
-    required_error: "gamertag is required",
-    invalid_type_error: "gamertag must be a string",
-  }),
-  time: z.string({
-    required_error: "time is required",
-    invalid_type_error: "time must be a string",
-  }),
-  circuitId: z.string({
-    required_error: "circuitId is required",
-    invalid_type_error: "circuitId must be a string",
-  }),
+  gamertag: z.string(),
+  time: z.string(),
+  circuitId: z.string(),
 });
 
 type AddTimeSchema = Omit<z.infer<typeof addTimeSchema>, "apikey">;
 
-export async function POST(request: Request, props: { params: Promise<AddTimeSchema> }) {
+export async function POST(
+  request: Request,
+  props: { params: Promise<AddTimeSchema> },
+) {
   const params = await props.params;
   const { searchParams } = new URL(request.url);
 
@@ -38,15 +32,15 @@ export async function POST(request: Request, props: { params: Promise<AddTimeSch
   });
 
   if (!response.success) {
-    const { errors } = response.error;
+    const { issues } = response.error;
 
-    return Response.json({ error: { errors } }, { status: 400 });
+    return Response.json({ error: { issues } }, { status: 400 });
   }
 
   if (searchParams.get("apikey") !== process.env.API_KEY) {
     return Response.json(
       { success: false, data: "Invalid API key" },
-      { status: 401 }
+      { status: 401 },
     );
   }
 
@@ -95,7 +89,7 @@ export async function POST(request: Request, props: { params: Promise<AddTimeSch
             Authorization: `Bearer ${process.env.RESEND_MAIL_API_KEY}`,
             "Content-Type": "application/json",
           },
-        }
+        },
       );
     }
 
