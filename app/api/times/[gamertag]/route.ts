@@ -7,15 +7,15 @@ const prisma = new PrismaClient();
 
 const timeSchema = z.object({
   apikey: apikeySchema,
-  gamertag: z.string({
-    required_error: "gamertag is required",
-    invalid_type_error: "gamertag must be a string",
-  }),
+  gamertag: z.string(),
 });
 
 type TimeSchema = Omit<z.infer<typeof timeSchema>, "apikey">;
 
-export async function GET(request: Request, props: { params: Promise<TimeSchema> }) {
+export async function GET(
+  request: Request,
+  props: { params: Promise<TimeSchema> },
+) {
   const params = await props.params;
   const { searchParams } = new URL(request.url);
 
@@ -25,15 +25,15 @@ export async function GET(request: Request, props: { params: Promise<TimeSchema>
   });
 
   if (!response.success) {
-    const { errors } = response.error;
+    const { issues } = response.error;
 
     return Response.json(
       {
-        error: { errors },
+        error: { issues },
       },
       {
         status: 400,
-      }
+      },
     );
   }
 
@@ -42,7 +42,7 @@ export async function GET(request: Request, props: { params: Promise<TimeSchema>
       { success: false, data: "Invalid API key" },
       {
         status: 401,
-      }
+      },
     );
   }
 
@@ -61,7 +61,7 @@ export async function GET(request: Request, props: { params: Promise<TimeSchema>
           success: false,
           data: { times: `No times set for this gamertag` },
         },
-        { status: 200 }
+        { status: 200 },
       );
     }
   } catch (error) {

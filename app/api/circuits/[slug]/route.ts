@@ -7,15 +7,15 @@ const prisma = new PrismaClient();
 
 const circuitsSchema = z.object({
   apikey: apikeySchema,
-  slug: z.string({
-    required_error: "slug is required",
-    invalid_type_error: "slug must be a string",
-  }),
+  slug: z.string(),
 });
 
 type CircuitsSchema = Omit<z.infer<typeof circuitsSchema>, "apikey">;
 
-export async function GET(request: Request, props: { params: Promise<CircuitsSchema> }) {
+export async function GET(
+  request: Request,
+  props: { params: Promise<CircuitsSchema> },
+) {
   const params = await props.params;
   const { searchParams } = new URL(request.url);
 
@@ -25,15 +25,15 @@ export async function GET(request: Request, props: { params: Promise<CircuitsSch
   });
 
   if (!response.success) {
-    const { errors } = response.error;
+    const { issues } = response.error;
 
     return Response.json(
       {
-        error: { errors },
+        error: { issues },
       },
       {
         status: 400,
-      }
+      },
     );
   }
 
@@ -42,7 +42,7 @@ export async function GET(request: Request, props: { params: Promise<CircuitsSch
       { success: false, data: "Invalid API key" },
       {
         status: 401,
-      }
+      },
     );
   }
 
@@ -74,7 +74,7 @@ export async function GET(request: Request, props: { params: Promise<CircuitsSch
     } else {
       return Response.json(
         { success: false, data: "Circuit not found" },
-        { status: 400 }
+        { status: 400 },
       );
     }
   } catch (error) {
