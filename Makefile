@@ -7,7 +7,6 @@ info:
 	@echo "  make lint-fix			Run the project codestyle fix."
 	@echo "  make test			Run the project test."
 	@echo "  make test-manual		Run the project test with Cypress interface."
-	@echo "  make update			Update all dependencies in root, frontend and backend folders."
 	@echo "  make reset			Reset the project containers, volumes, local dependencies and cache files."
 
 build: \
@@ -48,8 +47,6 @@ lint-fix: ## Run the project codestyle fix.
 	@make start
 	@make do-frontend-codestyle-fix
 
-update: do-update-dependencies
-
 reset: \
 	do-remove-nodemodules
 	sudo rm -rf postgres-data
@@ -61,12 +58,6 @@ do-install-dependencies:
 	@echo ""
 	@echo "Installing local dependencies.."
 	yarn install
-
-# Upgrade dependencies
-do-update-dependencies:
-	@echo ""
-	@echo "Updating dependencies.."
-	yarn upgrade-interactive --latest
 
 # Remove dependencies & cache
 do-remove-nodemodules:
