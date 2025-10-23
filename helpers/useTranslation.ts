@@ -1,7 +1,7 @@
 import nl from "@/translations/nl-NL.json";
 
 export const useTranslation = () => {
-  const t = (key: keyof typeof nl, obj?: { [key: string]: string }) => {
+  const t = (key: keyof typeof nl, obj?: Record<string, string>) => {
     if (!nl[key]) {
       throw new Error(`No translation found for ${key}`);
     }

@@ -65,6 +65,7 @@ export async function GET(
       );
     }
   } catch (error) {
+    console.error(error);
     return Response.json({ success: false }, { status: 400 });
   }
 }

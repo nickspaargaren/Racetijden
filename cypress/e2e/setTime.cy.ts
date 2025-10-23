@@ -26,11 +26,11 @@ describe("Set new time test", () => {
 
     cy.get(`[data-cy="latesttime"] > div:first-child > p:first-child`).should(
       "have.text",
-      time.circuit
+      time.circuit,
     );
     cy.get(`[data-cy="latesttime"] > div:first-child > p small`).should(
       "have.text",
-      time.gamertag
+      time.gamertag,
     );
 
     cy.get(`[data-cy="latesttime"]`).click();
