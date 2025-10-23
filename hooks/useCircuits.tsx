@@ -2,7 +2,7 @@ import axios from "axios";
 import useSWR, { Fetcher } from "swr";
 
 const useCircuits = <T extends object>(url: string) => {
-  const fetcher: Fetcher<T> = (url: string) =>
+  const fetcher: Fetcher<T, string> = (url) =>
     axios
       .get<T>(url, {
         params: {
@@ -11,12 +11,12 @@ const useCircuits = <T extends object>(url: string) => {
       })
       .then((res) => res.data);
 
-  const { data, error } = useSWR<T>(url, fetcher);
+  const { data, error, isLoading } = useSWR<T, Error>(url, fetcher);
 
   return {
-    data: data,
-    isLoading: !error && !data,
-    isError: !!error,
+    data,
+    isLoading,
+    error,
   };
 };
 

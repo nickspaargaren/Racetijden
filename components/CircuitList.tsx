@@ -16,11 +16,10 @@ const CircuitList = ({
 }: {
   searchQuery: string;
 }): ReactElement => {
-  const { data, isLoading, isError } =
-    useCircuits<ResponseType>("/api/circuits");
+  const { data, isLoading, error } = useCircuits<ResponseType>("/api/circuits");
 
-  if (isError) {
-    return <p>Error loading circuits.</p>;
+  if (error) {
+    return <p>{error.message}</p>;
   }
 
   if (isLoading || !data) {
