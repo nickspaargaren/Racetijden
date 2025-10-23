@@ -84,7 +84,7 @@ const CircuitPage = (props: {
   params: Promise<{ circuit: string }>;
 }): ReactElement => {
   const params = use(props.params);
-  const { data, isError, isLoading } = useCircuits<ResponseType>(
+  const { data, error, isLoading } = useCircuits<ResponseType>(
     `/api/circuits/${params.circuit}`,
   );
   const { t } = useTranslation();
@@ -97,10 +97,10 @@ const CircuitPage = (props: {
     },
   });
 
-  if (isError) {
+  if (error) {
     return (
       <Layout title={t("F1times", { version: "22" })} description="Circuits">
-        Error loading circuit.
+        {error.message}
       </Layout>
     );
   }

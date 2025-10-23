@@ -41,11 +41,11 @@ const StyledLatestTimeUpdate = styled.div`
 `;
 
 const LatestTimeUpdate = (): ReactElement => {
-  const { data, isLoading, isError } =
+  const { data, isLoading, error } =
     useCircuits<ResponseType>("/api/times/latest");
 
-  if (isError) {
-    return <p>Error loading the latest times.</p>;
+  if (error) {
+    return <p>{error.message}</p>;
   }
 
   if (isLoading || !data) {
