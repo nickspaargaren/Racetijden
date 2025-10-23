@@ -13,7 +13,7 @@
     "test": "npx cypress run"
   },
   "prisma": {
-    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
+    "seed": "node prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^6.16.3",
@@ -40,7 +40,6 @@
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.6.2",
     "prisma": "^6.16.3",
-    "ts-node": "^10.9.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.45.0"
   },
