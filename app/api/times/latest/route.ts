@@ -23,11 +23,12 @@ export async function GET() {
 
     return Response.json({ success: true, data: { times: [time[0]] } });
   } catch (error) {
+    console.error(error);
     return Response.json(
       { success: false },
       {
         status: 400,
-      }
+      },
     );
   }
 }

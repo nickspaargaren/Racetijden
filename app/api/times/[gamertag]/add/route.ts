@@ -95,6 +95,7 @@ export async function POST(
 
     return Response.json({ success: true, data: updateTime }, { status: 201 });
   } catch (error) {
+    console.error(error);
     return Response.json({ success: false, data: error }, { status: 400 });
   }
 }

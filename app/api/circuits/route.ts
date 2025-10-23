@@ -27,11 +27,12 @@ export async function GET() {
 
     return Response.json({ success: true, data: { circuits } });
   } catch (error) {
+    console.error(error);
     return Response.json(
       { success: false },
       {
         status: 400,
-      }
+      },
     );
   }
 }
