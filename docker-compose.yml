@@ -30,7 +30,7 @@ services:
       - 5555:5555
 
   postgres:
-    image: postgres:latest
+    image: postgres:17
     restart: always
     environment:
       - POSTGRES_USER=postgres
