@@ -17,6 +17,8 @@ export default defineConfig(
       "simple-import-sort/imports": "error",
       "simple-import-sort/exports": "error",
       "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+      "no-multiple-empty-lines": ["error", { max: 1, maxEOF: 0, maxBOF: 0 }],
+      "no-trailing-spaces": "error",
     },
-  },
+  }
 );
