@@ -1,10 +1,9 @@
-import { PrismaClient } from "@prisma/client";
 import axios from "axios";
 import { z } from "zod";
 
 import { apikeySchema } from "@/lib/schemas";
 
-const prisma = new PrismaClient();
+import { prisma } from "../../../../../lib/prisma";
 
 const addTimeSchema = z.object({
   apikey: apikeySchema,

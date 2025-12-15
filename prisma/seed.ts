@@ -1,13 +1,11 @@
-import type { Circuit, Time } from "@prisma/client";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import { prisma } from "../lib/prisma";
+import type { Prisma } from "../prisma/generated/client";
 
 const createdAt = new Date();
 const updatedAt = new Date();
 
 async function main() {
-  const circuits: Omit<Circuit, "id">[] = [
+  const circuits: Prisma.CircuitCreateManyInput[] = [
     {
       name: "Bahrain GP",
       slug: "bahrain-gp",
@@ -217,7 +215,7 @@ async function main() {
 
   console.log(`Added ${newCircuits.count} circuits`);
 
-  const times: Omit<Time, "id">[] = [
+  const times: Prisma.TimeCreateManyInput[] = [
     {
       time: "01:17.571",
       gamertag: "CSI-SNIPER",

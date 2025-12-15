@@ -21,5 +21,11 @@ export default defineConfig(
       "no-trailing-spaces": "error",
     },
   },
-  globalIgnores([".next/**", "out/**", "build/**", "next-env.d.ts"]),
+  globalIgnores([
+    ".next/**",
+    "out/**",
+    "build/**",
+    "next-env.d.ts",
+    "prisma/generated/**",
+  ]),
 );
