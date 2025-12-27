@@ -6,9 +6,6 @@ const nextConfig: NextConfig = {
   compiler: {
     styledComponents: true,
   },
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   env: {
     API_KEY: process.env.API_KEY,
   },
