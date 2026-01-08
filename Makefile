@@ -57,7 +57,7 @@ reset: \
 do-install-dependencies:
 	@echo ""
 	@echo "Installing local dependencies.."
-	yarn install
+	yarn install --frozen-lockfile
 
 # Remove dependencies & cache
 do-remove-nodemodules:
