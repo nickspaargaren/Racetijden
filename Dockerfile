@@ -8,4 +8,4 @@ CMD ["yarn", "dev"]
 
 FROM base AS studio
 RUN yarn install --frozen-lockfile
-CMD ["npx", "prisma", "studio"]
+CMD ["yarn", "run", "prisma", "studio", "--port", "5555", "--browser", "none"]

@@ -3,6 +3,7 @@
 
 # production
 /build
+tsconfig.tsbuildinfo
 
 # misc
 .DS_Store
@@ -17,6 +18,7 @@ yarn-error.log*
 .env
 
 # Prisma
+generated/
 /postgres-data
 
 # Tests
