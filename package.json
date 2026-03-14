@@ -9,9 +9,9 @@
     "lint:fix": "eslint . --fix",
     "prisma:setup": "prisma migrate dev",
     "prisma:generate": "prisma generate",
-    "prisma:reset": "npx prisma migrate reset",
+    "prisma:reset": "prisma migrate reset",
     "postinstall": "prisma generate",
-    "test": "npx cypress run"
+    "test": "cypress run"
   },
   "dependencies": {
     "@prisma/client": "^7.5.0",
