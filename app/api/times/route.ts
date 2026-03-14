@@ -1,8 +1,5 @@
-import { PrismaClient } from "@prisma/client";
-
+import { prisma } from "@/lib/prisma";
 import { apikeySchema } from "@/lib/schemas";
-
-const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);

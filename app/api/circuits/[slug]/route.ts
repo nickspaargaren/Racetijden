@@ -1,9 +1,7 @@
-import { PrismaClient } from "@prisma/client";
 import { z } from "zod";
 
+import { prisma } from "@/lib/prisma";
 import { apikeySchema } from "@/lib/schemas";
-
-const prisma = new PrismaClient();
 
 const circuitsSchema = z.object({
   apikey: apikeySchema,
