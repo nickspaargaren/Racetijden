@@ -1,8 +1,8 @@
 import axios from "axios";
 import { z } from "zod";
 
-import { prisma } from "@/lib/prisma";
-import { apikeySchema } from "@/lib/schemas";
+import { prisma } from "../../../../../lib/prisma";
+import { apikeySchema } from "../../../../../lib/schemas";
 
 const addTimeSchema = z.object({
   apikey: apikeySchema,

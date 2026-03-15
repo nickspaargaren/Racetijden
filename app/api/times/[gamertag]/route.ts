@@ -1,7 +1,7 @@
 import { z } from "zod";
 
-import { prisma } from "@/lib/prisma";
-import { apikeySchema } from "@/lib/schemas";
+import { prisma } from "../../../../lib/prisma";
+import { apikeySchema } from "../../../../lib/schemas";
 
 const timeSchema = z.object({
   apikey: apikeySchema,
