@@ -3,6 +3,8 @@ on: push
 jobs:
   eslint:
     runs-on: ubuntu-latest
+    env:
+      POSTGRES_PRISMA_URL: "postgresql://postgres:postgres@postgres:5432/postgres"
     steps:
     - uses: actions/checkout@v6
     - uses: actions/setup-node@v6
