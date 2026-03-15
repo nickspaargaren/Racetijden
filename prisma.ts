@@ -1,6 +1,5 @@
 import { PrismaPg } from "@prisma/adapter-pg";
-
-import { PrismaClient } from "./generated/client";
+import { PrismaClient } from "@prisma/client";
 
 const connectionString = process.env.POSTGRES_PRISMA_URL;
 
