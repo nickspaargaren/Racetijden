@@ -43,6 +43,7 @@ describe("Set new time test", () => {
 
   after(() => {
     cy.exec("make database-reset");
+    cy.exec("make database-seed");
   });
 });
 

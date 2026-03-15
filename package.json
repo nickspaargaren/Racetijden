@@ -1,5 +1,6 @@
 {
   "name": "f1-frontend-web",
+  "type": "module",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -8,15 +9,12 @@
     "lint:fix": "eslint . --fix",
     "prisma:setup": "prisma migrate dev",
     "prisma:generate": "prisma generate",
-    "prisma:reset": "npx prisma migrate reset",
+    "prisma:reset": "prisma migrate reset",
     "postinstall": "prisma generate",
-    "test": "npx cypress run"
-  },
-  "prisma": {
-    "seed": "node prisma/seed.ts"
+    "test": "cypress run"
   },
   "dependencies": {
-    "@prisma/client": "^6.18.0",
+    "@prisma/client": "^7.5.0",
     "axios": "^1.13.5",
     "cypress": "^15.3.0",
     "dayjs": "^1.11.19",
@@ -29,17 +27,22 @@
     "react-number-format": "^5.4.4",
     "styled-components": "^6.1.19",
     "swr": "^2.3.8",
-    "zod": "^4.2.0"
+    "zod": "^4.2.0",
+    "@prisma/adapter-pg": "^7.5.0",
+    "dotenv": "^16.4.5",
+    "pg": "^8.13.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@types/pg": "^8.11.10",
     "@types/react": "^19.2.14",
     "eslint": "^10.0.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "prettier": "^3.8.1",
-    "prisma": "^6.18.0",
+    "prisma": "^7.5.0",
+    "tsx": "^4.19.2",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.56.1"
   },

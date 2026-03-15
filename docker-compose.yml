@@ -8,6 +8,10 @@ services:
     depends_on:
       - "postgres"
     restart: always
+    # environment:
+    #   - POSTGRES_PRISMA_URL=postgresql://postgres:postgres@postgres:5432/postgres
+    #   - POSTGRES_URL_NON_POOLING=postgresql://postgres:postgres@postgres:5432/postgres
+    #   - API_KEY=123
     volumes:
       - ./:/app
       - /app/node_modules

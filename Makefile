@@ -14,7 +14,7 @@ build: \
 	@echo ""
 	@docker compose build
 	@docker compose up -d
-	@docker compose exec frontend sh -c "yarn prisma:reset"
+	@make database-reset
 	@make database-seed
 
 start:
@@ -73,7 +73,7 @@ database-reset:
 	@docker compose exec -T frontend sh -c "yarn prisma:reset --force"
 
 database-migration:
-	@docker compose exec frontend sh -c "npx prisma migrate dev"
+	@docker compose exec frontend sh -c "yarn run prisma migrate dev"
 
 do-frontend-shell:
 	@docker compose exec frontend sh
