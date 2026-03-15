@@ -1,5 +1,5 @@
 import { prisma } from "../lib/prisma.js";
-import type { Circuit, Time } from "./generated/prisma";
+import type { Circuit, Time } from "../lib/generated/client";
 
 const createdAt = new Date();
 const updatedAt = new Date();
