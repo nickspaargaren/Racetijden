@@ -29,7 +29,7 @@
     "react-number-format": "^5.4.4",
     "styled-components": "^6.1.19",
     "swr": "^2.3.8",
-    "zod": "^4.2.0"
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
