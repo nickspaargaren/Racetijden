@@ -1764,7 +1764,7 @@ __metadata:
     react-dom: "npm:^19.2.5"
     react-hook-form: "npm:^7.66.0"
     react-icons: "npm:^5.6.0"
-    react-number-format: "npm:^5.4.4"
+    react-number-format: "npm:^5.4.5"
     styled-components: "npm:^6.4.1"
     swr: "npm:^2.3.8"
     typescript: "npm:^5.9.3"
@@ -2895,13 +2895,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-number-format@npm:^5.4.4":
-  version: 5.4.4
-  resolution: "react-number-format@npm:5.4.4"
+"react-number-format@npm:^5.4.5":
+  version: 5.4.5
+  resolution: "react-number-format@npm:5.4.5"
   peerDependencies:
     react: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^0.14 || ^15.0.0 || ^16.0.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/e55cd16d9f7379a717e77d519db06ed455cc2df9842cd23499b60bc2ba1179df580742e27867a4ae84e0d308b18c0773b7e8943f9162e853f97bd194d15b0de7
+  checksum: 10c0/bc5570a48542622f6c9068be616e87cc5280a67bb7f5a8ae13fe7a67e42f6ec12c244453b967b76737d775704ef792183bd8a47b23c225535342eccb7b1fcbb0
   languageName: node
   linkType: hard
 
