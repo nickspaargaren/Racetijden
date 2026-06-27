@@ -1,0 +1,20 @@
+name: CI
+on: push
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install modules
+        run: yarn install --immutable
+      - name: Check dependencies for duplicates
+        run: yarn dedupe --check
+      - name: Run linter
+        run: yarn run lint
+      - name: Run TypeScript check
+        run: yarn run tsc --noEmit
