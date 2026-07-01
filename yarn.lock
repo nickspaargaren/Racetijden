@@ -1776,7 +1776,7 @@ __metadata:
     react-icons: "npm:^5.6.0"
     react-number-format: "npm:^5.4.5"
     styled-components: "npm:^6.4.2"
-    swr: "npm:^2.3.8"
+    swr: "npm:^2.4.2"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.56.1"
     zod: "npm:^4.3.6"
@@ -3301,15 +3301,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"swr@npm:^2.3.8":
-  version: 2.3.8
-  resolution: "swr@npm:2.3.8"
+"swr@npm:^2.4.2":
+  version: 2.4.2
+  resolution: "swr@npm:2.4.2"
   dependencies:
     dequal: "npm:^2.0.3"
     use-sync-external-store: "npm:^1.6.0"
   peerDependencies:
     react: ^16.11.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10c0/ee879100fc14a9d3a9f453842cb838027f3eba728e1b33be4998eea2f612d4822a5f70815c64cceb554ba36d9120fe3d7fed63597642823f204752750208fd8e
+  checksum: 10c0/fdb54e3cb5e788d4aa53d7db7d541709807c0dde2af41c423e241274cd6595e66dca15a0a310e08a26a49391ff615c153aaa44710016249c2d4c0fe653cc970f
   languageName: node
   linkType: hard
 
