@@ -22,6 +22,7 @@ make start
 
 The application will be available at:
 - **App**: http://localhost:3000
+- **API docs**: http://localhost:3000/api/openapi
 - **Prisma Studio**: http://localhost:5555
 
 ### Development

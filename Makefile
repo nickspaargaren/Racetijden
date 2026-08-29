@@ -21,6 +21,7 @@ start:
 	@docker compose up -d
 	@echo ""
 	@echo "  The project is running on http://localhost:3000/."
+	@echo "  API docs are running on http://localhost:3000/api/openapi."
 	@echo "  Prisma Studio is running on http://localhost:5555/."
 	@echo ""
 

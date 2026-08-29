@@ -16,10 +16,14 @@
     "seed": "node prisma/seed.ts"
   },
   "dependencies": {
+    "@elysia/openapi": "^1.4.15",
     "@prisma/client": "^6.19.3",
+    "@sinclair/typebox": "^0.34.52",
     "axios": "1.18.0",
     "cypress": "^15.3.0",
     "dayjs": "^1.11.20",
+    "elysia": "^1.4.29",
+    "file-type": "^22.0.2",
     "motion": "^12.40.0",
     "next": "^16.2.11",
     "react": "^19.2.8",
