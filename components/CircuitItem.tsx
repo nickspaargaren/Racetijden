@@ -4,12 +4,14 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 
 import TextLoader from "@/components/TextLoader";
-import { CircuitType } from "@/types";
+import type { CircuitModel } from "@/elysia/modules/circuits/model";
 
 import Winner from "./Winner";
 
+type CircuitItem = (typeof CircuitModel.response.static)[number];
+
 type CircuitItemType = {
-  item?: CircuitType;
+  item?: CircuitItem;
   loading?: boolean;
 };
 

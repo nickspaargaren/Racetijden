@@ -1,4 +1,4 @@
-import axios from "axios";
+import { api } from "@/lib/eden";
 
 import { useTranslation } from "./useTranslation";
 
@@ -15,9 +15,12 @@ export const addNewTime = async ({
 }: newtimeProps) => {
   const { t } = useTranslation();
   if (gamertag !== "" && time !== "" && !time.includes("_")) {
-    await axios.post(
-      `/api/times/${gamertag}/add?apikey=${process.env.API_KEY}&time=${time}&circuitId=${circuitId}`,
-    );
+    await api
+      .times({ gamertag })
+      .add.post(
+        { time, circuitId },
+        { query: { apikey: process.env.API_KEY } },
+      );
     window.location.reload();
   } else {
     alert(t("checkGamertagAndTime"));

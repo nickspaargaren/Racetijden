@@ -57,6 +57,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@elysiajs/eden@npm:^1.4.9":
+  version: 1.4.9
+  resolution: "@elysiajs/eden@npm:1.4.9"
+  peerDependencies:
+    elysia: ">=1.4.19"
+  checksum: 10c0/59d5ef7576720a8e8eae587987eda3f729cff941c6b5721fe59f168097636bf91df26eccd29d42a7e5bdadd6938001617f0298777a3e55b4da1c511f690cba73
+  languageName: node
+  linkType: hard
+
 "@emnapi/runtime@npm:^1.7.0":
   version: 1.7.1
   resolution: "@emnapi/runtime@npm:1.7.1"
@@ -1840,6 +1849,7 @@ __metadata:
   resolution: "f1-frontend-web@workspace:."
   dependencies:
     "@elysia/openapi": "npm:^1.4.15"
+    "@elysiajs/eden": "npm:^1.4.9"
     "@eslint/js": "npm:^10.0.1"
     "@prisma/client": "npm:^6.19.3"
     "@sinclair/typebox": "npm:^0.34.52"
@@ -1866,7 +1876,6 @@ __metadata:
     swr: "npm:^2.4.2"
     typescript: "npm:^5.9.3"
     typescript-eslint: "npm:^8.66.0"
-    zod: "npm:^4.4.3"
   languageName: unknown
   linkType: soft
 
@@ -3749,12 +3758,5 @@ __metadata:
   version: 0.1.0
   resolution: "yocto-queue@npm:0.1.0"
   checksum: 10c0/dceb44c28578b31641e13695d200d34ec4ab3966a5729814d5445b194933c096b7ced71494ce53a0e8820685d1d010df8b2422e5bf2cdea7e469d97ffbea306f
-  languageName: node
-  linkType: hard
-
-"zod@npm:^4.4.3":
-  version: 4.4.3
-  resolution: "zod@npm:4.4.3"
-  checksum: 10c0/7ea31b558e88f9faf44f31dd185e2e1cbf51fed3081787fb96cc2534749b50c0acfc6da7f0922a7353ed092dd358c7d50c28ea96c94d04af64191bd33152eca3
   languageName: node
   linkType: hard

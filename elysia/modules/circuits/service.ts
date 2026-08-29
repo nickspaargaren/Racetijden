@@ -19,4 +19,21 @@ export const CircuitService = {
       orderBy: { name: "asc" },
     });
   },
+
+  findBySlug(slug: string) {
+    return prisma.circuit.findUnique({
+      where: { slug },
+      select: {
+        id: true,
+        name: true,
+        slug: true,
+        description: true,
+        flag: true,
+        times: {
+          select: { time: true, gamertag: true },
+          orderBy: { time: "asc" },
+        },
+      },
+    });
+  },
 };

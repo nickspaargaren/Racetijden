@@ -1,14 +1,7 @@
-import { openapi } from "@elysia/openapi";
-import { Elysia } from "elysia";
+import { app } from "@/elysia/app";
 
-import { circuits } from "@/elysia/modules/circuits";
-
-const app = new Elysia({ prefix: "/api" })
-  .use(openapi())
-  .onError(({ error, status }) => {
-    console.error(error);
-    return status(500, { message: "Internal server error" });
-  })
-  .use(circuits);
+export type { App } from "@/elysia/app";
+export { app };
 
 export const GET = app.fetch;
+export const POST = app.fetch;
