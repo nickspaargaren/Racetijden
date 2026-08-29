@@ -2,7 +2,7 @@ import { ReactElement } from "react";
 import styled from "styled-components";
 
 import useCircuits from "@/hooks/useCircuits";
-import { ResponseType } from "@/types";
+import { CircuitType } from "@/types";
 
 import CircuitItem from "./CircuitItem";
 
@@ -16,7 +16,8 @@ const CircuitList = ({
 }: {
   searchQuery: string;
 }): ReactElement => {
-  const { data, isLoading, error } = useCircuits<ResponseType>("/api/circuits");
+  const { data, isLoading, error } =
+    useCircuits<CircuitType[]>("/api/circuits");
 
   if (error) {
     return <p>{error.message}</p>;
@@ -34,7 +35,7 @@ const CircuitList = ({
 
   return (
     <StyledCircuitList>
-      {data.data.circuits.map(
+      {data.map(
         (item) =>
           (item.name.toLowerCase() + item.description.toLowerCase()).includes(
             searchQuery.toLowerCase(),
