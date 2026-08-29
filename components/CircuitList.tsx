@@ -1,8 +1,8 @@
 import { ReactElement } from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
-import useCircuits from "@/hooks/useCircuits";
-import { CircuitType } from "@/types";
+import { api } from "@/lib/eden";
 
 import CircuitItem from "./CircuitItem";
 
@@ -16,8 +16,9 @@ const CircuitList = ({
 }: {
   searchQuery: string;
 }): ReactElement => {
-  const { data, isLoading, error } =
-    useCircuits<CircuitType[]>("/api/circuits");
+  const { data, isLoading, error } = useSWR("circuits", () =>
+    api.circuits.get(),
+  );
 
   if (error) {
     return <p>{error.message}</p>;
@@ -33,9 +34,11 @@ const CircuitList = ({
     );
   }
 
+  const circuits = data.data ?? [];
+
   return (
     <StyledCircuitList>
-      {data.map(
+      {circuits.map(
         (item) =>
           (item.name.toLowerCase() + item.description.toLowerCase()).includes(
             searchQuery.toLowerCase(),

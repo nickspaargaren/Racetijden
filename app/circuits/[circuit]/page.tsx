@@ -4,13 +4,13 @@ import { ReactElement, use } from "react";
 import { useForm } from "react-hook-form";
 import { PatternFormat } from "react-number-format";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import Layout from "@/components/Layout";
 import Loading from "@/components/Loading";
 import { addNewTime } from "@/helpers/addNewTime";
 import { useTranslation } from "@/helpers/useTranslation";
-import useCircuits from "@/hooks/useCircuits";
-import { ResponseType } from "@/types";
+import { api } from "@/lib/eden";
 import { getwinner } from "@/utils";
 
 const TextButton = styled.button`
@@ -84,8 +84,10 @@ const CircuitPage = (props: {
   params: Promise<{ circuit: string }>;
 }): ReactElement => {
   const params = use(props.params);
-  const { data, error, isLoading } = useCircuits<ResponseType>(
-    `/api/circuits/${params.circuit}`,
+  const { data, error, isLoading } = useSWR(`circuits/${params.circuit}`, () =>
+    api.circuits({ slug: params.circuit }).get({
+      query: { apikey: process.env.API_KEY },
+    }),
   );
   const { t } = useTranslation();
 
@@ -105,7 +107,7 @@ const CircuitPage = (props: {
     );
   }
 
-  if (isLoading || !data) {
+  if (isLoading || !data?.data) {
     return (
       <Layout title={t("loading")} description={t("loading")}>
         <Loading />
@@ -113,7 +115,7 @@ const CircuitPage = (props: {
     );
   }
 
-  const [currentCircuit] = data.data.circuits;
+  const currentCircuit = data.data;
 
   setValue("circuitId", currentCircuit.id);
 

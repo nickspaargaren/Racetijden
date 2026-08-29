@@ -1,3 +1,5 @@
+"use client";
+
 import "dayjs/locale/nl";
 
 import dayjs from "dayjs";
@@ -5,10 +7,10 @@ import relativeTime from "dayjs/plugin/relativeTime";
 import Link from "next/link";
 import { ReactElement } from "react";
 import styled from "styled-components";
+import useSWR from "swr";
 
 import TextLoader from "@/components/TextLoader";
-import useCircuits from "@/hooks/useCircuits";
-import { ResponseType } from "@/types";
+import { api } from "@/lib/eden";
 
 dayjs.locale("nl");
 
@@ -41,14 +43,15 @@ const StyledLatestTimeUpdate = styled.div`
 `;
 
 const LatestTimeUpdate = (): ReactElement => {
-  const { data, isLoading, error } =
-    useCircuits<ResponseType>("/api/times/latest");
+  const { data, isLoading, error } = useSWR("times/latest", () =>
+    api.times.latest.get(),
+  );
 
   if (error) {
     return <p>{error.message}</p>;
   }
 
-  if (isLoading || !data) {
+  if (isLoading || !data?.data) {
     return (
       <StyledLatestTimeUpdate>
         <a>
@@ -78,7 +81,7 @@ const LatestTimeUpdate = (): ReactElement => {
     );
   }
 
-  const latestTimeEntry = data.data.times[0];
+  const latestTimeEntry = data.data[0];
 
   return (
     <StyledLatestTimeUpdate>
