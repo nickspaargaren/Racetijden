@@ -30,7 +30,7 @@ model Time {
   gamertag  String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  circuitId Int      @default(autoincrement())
+  circuitId Int
   id        Int      @id @default(autoincrement())
   circuit   Circuit  @relation(fields: [circuitId], references: [id])
 
