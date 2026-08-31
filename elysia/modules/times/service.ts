@@ -15,8 +15,7 @@ export const TimesService = {
   },
 
   findLatest() {
-    return prisma.time.findMany({
-      take: 1,
+    return prisma.time.findFirst({
       orderBy: [{ updatedAt: "desc" }, { createdAt: "desc" }],
       include: {
         circuit: {
