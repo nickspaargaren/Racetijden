@@ -5,7 +5,16 @@ import { circuits } from "./modules/circuits";
 import { times } from "./modules/times";
 
 export const app = new Elysia({ prefix: "/api" })
-  .use(openapi())
+  .use(
+    openapi({
+      documentation: {
+        info: {
+          title: "Racetijden API",
+          description: "Documentation for the Racetijden API",
+        },
+      },
+    }),
+  )
   .onError(({ error, status }) => {
     console.error(error);
     return status(500, { message: "Internal server error" });

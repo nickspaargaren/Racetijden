@@ -17,6 +17,7 @@ export const circuits = new Elysia({ prefix: "/circuits" })
       }
     },
     {
+      detail: { summary: "Get all circuits" },
       response: {
         200: CircuitModel.response,
         500: CircuitModel.error,
@@ -37,6 +38,7 @@ export const circuits = new Elysia({ prefix: "/circuits" })
       }
     },
     {
+      detail: { summary: "Get a single circuit" },
       params: t.Object({ slug: t.String() }),
       query: t.Optional(t.Object({ apikey: t.Optional(t.String()) })),
       response: {

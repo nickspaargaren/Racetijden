@@ -19,6 +19,7 @@ export const times = new Elysia({ prefix: "/times" })
       }
     },
     {
+      detail: { summary: "Get all lap times" },
       query: t.Optional(t.Object({ apikey: t.Optional(t.String()) })),
       response: {
         200: TimesModel.response,
@@ -38,6 +39,7 @@ export const times = new Elysia({ prefix: "/times" })
       }
     },
     {
+      detail: { summary: "Get latest lap time set" },
       response: {
         200: TimesModel.response,
         500: TimesModel.error,
@@ -58,6 +60,7 @@ export const times = new Elysia({ prefix: "/times" })
       }
     },
     {
+      detail: { summary: "Get lap times set by gamertag" },
       params: t.Object({ gamertag: t.String() }),
       query: t.Optional(t.Object({ apikey: t.Optional(t.String()) })),
       response: {
@@ -104,6 +107,7 @@ export const times = new Elysia({ prefix: "/times" })
       }
     },
     {
+      detail: { summary: "Add or update a lap time" },
       params: t.Object({ gamertag: t.String() }),
       query: t.Optional(t.Object({ apikey: t.Optional(t.String()) })),
       body: TimesModel.upsertBody,
