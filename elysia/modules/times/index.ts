@@ -8,23 +8,6 @@ import { TimesService } from "./service";
 export const times = new Elysia({ prefix: "/times" })
   .use(apiKeyGuard)
   .get(
-    "/latest",
-    async ({ status }) => {
-      try {
-        return await TimesService.findLatest();
-      } catch (e) {
-        console.error(e);
-        return status(500, { message: "Internal server error" });
-      }
-    },
-    {
-      response: {
-        200: TimesModel.response,
-        500: TimesModel.error,
-      },
-    },
-  )
-  .get(
     "/",
     async ({ authorized, status }) => {
       if (!authorized) return status(401, { message: "Unauthorized" });
@@ -40,6 +23,23 @@ export const times = new Elysia({ prefix: "/times" })
       response: {
         200: TimesModel.response,
         401: TimesModel.unauthorized,
+        500: TimesModel.error,
+      },
+    },
+  )
+  .get(
+    "/latest",
+    async ({ status }) => {
+      try {
+        return await TimesService.findLatest();
+      } catch (e) {
+        console.error(e);
+        return status(500, { message: "Internal server error" });
+      }
+    },
+    {
+      response: {
+        200: TimesModel.response,
         500: TimesModel.error,
       },
     },
