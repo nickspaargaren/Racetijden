@@ -32,7 +32,9 @@ export const times = new Elysia({ prefix: "/times" })
     "/latest",
     async ({ status }) => {
       try {
-        return await TimesService.findLatest();
+        const latest = await TimesService.findLatest();
+        if (!latest) return status(404, { message: "No times found" });
+        return latest;
       } catch (e) {
         console.error(e);
         return status(500, { message: "Internal server error" });
@@ -41,7 +43,8 @@ export const times = new Elysia({ prefix: "/times" })
     {
       detail: { summary: "Get latest lap time set" },
       response: {
-        200: TimesModel.response,
+        200: TimesModel.latestResponse,
+        404: TimesModel.notFound,
         500: TimesModel.error,
       },
     },

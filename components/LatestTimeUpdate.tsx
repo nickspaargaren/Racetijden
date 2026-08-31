@@ -81,7 +81,7 @@ const LatestTimeUpdate = (): ReactElement => {
     );
   }
 
-  const latestTimeEntry = data.data[0];
+  const latestTimeEntry = data.data;
 
   return (
     <StyledLatestTimeUpdate>

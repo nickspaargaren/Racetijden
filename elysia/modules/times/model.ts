@@ -25,6 +25,7 @@ export const TimesModel = {
     message: t.Literal("No times found"),
   }),
   response: t.Array(TimeWithCircuit),
+  latestResponse: TimeWithCircuit,
   upsertBody: t.Object({
     time: t.String(),
     circuitId: t.Number(),
