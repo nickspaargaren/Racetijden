@@ -12,6 +12,9 @@
 # production
 /build
 
+# development
+tsconfig.tsbuildinfo
+
 # misc
 .DS_Store
 *.pem
