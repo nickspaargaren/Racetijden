@@ -17,10 +17,7 @@ export const addNewTime = async ({
   if (gamertag !== "" && time !== "" && !time.includes("_")) {
     await api
       .times({ gamertag })
-      .add.post(
-        { time, circuitId },
-        { query: { apikey: process.env.API_KEY } },
-      );
+      .post({ time, circuitId }, { query: { apikey: process.env.API_KEY } });
     window.location.reload();
   } else {
     alert(t("checkGamertagAndTime"));

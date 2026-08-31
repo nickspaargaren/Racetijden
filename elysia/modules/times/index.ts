@@ -69,7 +69,7 @@ export const times = new Elysia({ prefix: "/times" })
     },
   )
   .post(
-    "/:gamertag/add",
+    "/:gamertag",
     async ({ authorized, params, body, status }) => {
       if (!authorized) return status(401, { message: "Unauthorized" });
       try {
