@@ -22,7 +22,7 @@
     "@sinclair/typebox": "^0.34.52",
     "axios": "1.18.0",
     "cypress": "^15.3.0",
-    "dayjs": "^1.11.20",
+    "dayjs": "^1.11.23",
     "elysia": "^1.4.29",
     "file-type": "^22.0.2",
     "motion": "^13.1.1",
