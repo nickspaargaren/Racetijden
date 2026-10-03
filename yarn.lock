@@ -1516,9 +1516,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"elysia@npm:^1.4.29":
-  version: 1.4.29
-  resolution: "elysia@npm:1.4.29"
+"elysia@npm:^1.4.30":
+  version: 1.4.30
+  resolution: "elysia@npm:1.4.30"
   dependencies:
     cookie: "npm:^1.1.1"
     exact-mirror: "npm:^0.2.7"
@@ -1536,7 +1536,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10c0/4d79d1aba992c632ef7b24ae4f6a0a9d23c0e49add9ee97f08756200805c9d8214bfc6e430ba9c6dcd0425b597fccac2d3403626086beeea42108794c59c10f5
+  checksum: 10c0/03dc2309d3f5a89256cadd9d6f8608aed991032dd46ed47a4ceda047bb50907d2a9fa93bcc4d032ba0139628ec6939d573f5515d5a3591555e90c0d2a0f6c36d
   languageName: node
   linkType: hard
 
@@ -1878,7 +1878,7 @@ __metadata:
     axios: "npm:1.20.0"
     cypress: "npm:^15.3.0"
     dayjs: "npm:^1.11.23"
-    elysia: "npm:^1.4.29"
+    elysia: "npm:^1.4.30"
     eslint: "npm:^10.9.1"
     eslint-config-prettier: "npm:^10.1.8"
     eslint-plugin-prettier: "npm:^5.5.6"
