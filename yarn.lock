@@ -77,12 +77,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@elysia/openapi@npm:^1.4.15":
-  version: 1.4.15
-  resolution: "@elysia/openapi@npm:1.4.15"
+"@elysia/openapi@npm:^1.4.16":
+  version: 1.4.16
+  resolution: "@elysia/openapi@npm:1.4.16"
   peerDependencies:
+    "@sinclair/typebox": ">= 0.34.0 < 1"
     elysia: ">= 1.4.0"
-  checksum: 10c0/25ee20ffedbf685356089321a47eaaef864c90404a6239403f527796df58381389560bfff5d873643e3fe11c7d21888f57e5f75bdbfbcedcf2d2fe2bc3f8711c
+    typescript: ">= 5.0.0"
+  checksum: 10c0/2ce0be007accee80a1a1aaf691161357230a6dc3e2b1e4e238e19d82b34b55ece5fb329ab2c80c5ba8ac178b04d07e66f8043c711dc5cd9326506687e0687cd9
   languageName: node
   linkType: hard
 
@@ -1930,7 +1932,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "f1-frontend-web@workspace:."
   dependencies:
-    "@elysia/openapi": "npm:^1.4.15"
+    "@elysia/openapi": "npm:^1.4.16"
     "@elysiajs/eden": "npm:^1.4.9"
     "@eslint/js": "npm:^10.0.1"
     "@prisma/client": "npm:^6.19.3"

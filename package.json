@@ -16,7 +16,7 @@
     "seed": "node prisma/seed.ts"
   },
   "dependencies": {
-    "@elysia/openapi": "^1.4.15",
+    "@elysia/openapi": "^1.4.16",
     "@elysiajs/eden": "^1.4.9",
     "@prisma/client": "^6.19.3",
     "@sinclair/typebox": "^0.34.52",
